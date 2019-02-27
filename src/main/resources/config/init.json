@@ -1,0 +1,39 @@
+{
+  "users": [
+    {
+      "login": "admin",
+      "password": "admin",
+      "firstName": "Администратор",
+      "lastName": "Главный",
+      "role": "ADMIN"
+    },
+    {
+      "login": "firstUser",
+      "password": "firstPassword",
+      "firstName": "Оператор",
+      "lastName": "Первый",
+      "role": "OPERATOR"
+    },
+    {
+      "login": "secondUser",
+      "password": "secondPassword",
+      "firstName": "Оператор",
+      "lastName": "Второй",
+      "role": "OPERATOR"
+    }
+  ],
+  "employees": [
+    {
+      "firstName": "Елена",
+      "patronymic": "Петровна",
+      "lastName": "Сидорова",
+      "position": "Менеджер по продажам"
+    },
+    {
+      "firstName": "Григорий",
+      "patronymic": "Иванович",
+      "lastName": "Леонтьев",
+      "position": "Менеджер по закупкам"
+    }
+  ]
+}
