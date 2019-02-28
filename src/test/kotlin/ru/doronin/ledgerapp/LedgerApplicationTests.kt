@@ -12,5 +12,4 @@ class LedgerApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }
