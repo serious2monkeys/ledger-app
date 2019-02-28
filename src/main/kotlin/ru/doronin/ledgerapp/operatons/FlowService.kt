@@ -99,4 +99,7 @@ class FlowService(private val flowRepository: FlowRepository) {
         flow.id = flow.id ?: previous?.id
         return flowRepository.save(flow)
     }
+
+    @Transactional
+    fun delete(flow: FlowOperation) = flowRepository.delete(flow)
 }

@@ -120,6 +120,22 @@ class FlowController(
     }
 
     /**
+     * Удаление записи о движении средств
+     *
+     * @param storedFlow FlowOperation - запись
+     */
+    @DeleteMapping(path = ["{id}"])
+    fun deleteFlow(@PathVariable("id") storedFlow: FlowOperation): Map<String, String> {
+        val currentUser = userService.getCurrent()
+        if ((UserRole.ADMIN != currentUser.role) && (currentUser.id != storedFlow.modifiedBy.id)) {
+            throw AccessDeniedException("You have no authorities to delete the operation data")
+        }
+        flowService.delete(storedFlow)
+        return mapOf("message" to "Done")
+    }
+
+
+    /**
      * Запрос отчёта о движениях средств
      *
      * @param begin = начало периода
