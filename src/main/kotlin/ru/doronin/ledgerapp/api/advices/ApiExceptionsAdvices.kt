@@ -46,5 +46,5 @@ class AccessDeniedAdvice {
     @ExceptionHandler(AccessDeniedException::class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
     fun accessDeniedHandler(ex: AccessDeniedException): Map<String, String> =
-        mapOf("message" to (ex.message ?: "Access denied"))
+        mapOf("message" to (ex.message ?: "Access is denied"))
 }

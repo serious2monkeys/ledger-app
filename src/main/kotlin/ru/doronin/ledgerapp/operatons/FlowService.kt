@@ -6,6 +6,7 @@ import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.data.jpa.domain.Specification
 import org.springframework.security.access.AccessDeniedException
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Service
 import ru.doronin.ledgerapp.employee.Employee
 import ru.doronin.ledgerapp.user.User
@@ -22,7 +23,7 @@ class FlowService(private val flowRepository: FlowRepository) {
 
     fun findById(id: Long) = flowRepository.findById(id)
 
-    fun findAll(beginDateTime: LocalDateTime?, endDateTime: LocalDateTime?): List<FlowOperation> {
+    fun findAll(beginDateTime: LocalDateTime? = null, endDateTime: LocalDateTime? = null): List<FlowOperation> {
 
         if (beginDateTime == null && endDateTime == null) {
             flowRepository.findAll()
@@ -99,6 +100,16 @@ class FlowService(private val flowRepository: FlowRepository) {
         flow.id = flow.id ?: previous?.id
         return flowRepository.save(flow)
     }
+
+    /**
+     * Формирование помесячного отчета о движениях средств
+     *
+     * @param begin LocalDateTime   - начало периода выборки
+     * @param end LocalDateTime     - конец периода выборки
+     */
+    @PreAuthorize("hasRole('ADMIN')")
+    fun createReport(begin: LocalDateTime? = null, end: LocalDateTime? = null): MonthlyOperationsReport =
+        MonthlyOperationsReport(findAll(begin, end))
 
     @Transactional
     fun delete(flow: FlowOperation) = flowRepository.delete(flow)

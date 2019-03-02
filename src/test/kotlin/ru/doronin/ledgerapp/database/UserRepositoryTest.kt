@@ -12,7 +12,7 @@ import ru.doronin.ledgerapp.user.UserRepository
 import ru.doronin.ledgerapp.user.UserRole
 
 @RunWith(SpringRunner::class)
-@DataJpaTest
+@DataJpaTest(showSql = false)
 class UserRepositoryTest {
     @Autowired
     private lateinit var userRepository: UserRepository
@@ -34,6 +34,6 @@ class UserRepositoryTest {
 
         val searchResult = userRepository.findOneByLogin(login = userName)
         assertTrue(searchResult.isPresent)
-        assertEquals(user,searchResult.get())
+        assertEquals(user, searchResult.get())
     }
 }

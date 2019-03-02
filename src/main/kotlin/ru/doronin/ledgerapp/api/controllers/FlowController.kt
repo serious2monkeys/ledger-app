@@ -146,9 +146,6 @@ class FlowController(
         @RequestParam("begin") begin: String?,
         @RequestParam("end") end: String?
     ): MonthlyOperationsReport {
-        if (UserRole.ADMIN != userService.getCurrent().role) {
-            throw AccessDeniedException("Reports designed only for admins")
-        }
 
         val beginDateTime: LocalDateTime? =
             begin?.let { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE).atStartOfDay() }
@@ -156,6 +153,6 @@ class FlowController(
         val endDateTime: LocalDateTime? =
             end?.let { LocalDate.parse(it, DateTimeFormatter.ISO_LOCAL_DATE).atTime(LocalTime.MAX) }
 
-        return MonthlyOperationsReport(flowService.findAll(beginDateTime, endDateTime))
+        return flowService.createReport(beginDateTime, endDateTime)
     }
 }

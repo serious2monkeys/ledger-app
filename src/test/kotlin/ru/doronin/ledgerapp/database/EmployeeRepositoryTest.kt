@@ -11,7 +11,7 @@ import ru.doronin.ledgerapp.employee.Employee
 import ru.doronin.ledgerapp.employee.EmployeeRepository
 
 @RunWith(SpringRunner::class)
-@DataJpaTest
+@DataJpaTest(showSql = false)
 class EmployeeRepositoryTest {
 
     @Autowired

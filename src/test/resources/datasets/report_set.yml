@@ -1,3 +1,36 @@
+EMPLOYEES:
+  - ID: 1
+    FIRST_NAME: Екатерина
+    LAST_NAME: Иванова
+    POSITION: Бухгалтер
+
+  - ID: 2
+    FIRST_NAME: Сергей
+    LAST_NAME: Сидоров
+    POSITION: Менеджер по продажам
+
+USERS:
+  - ID: 1
+    FIRST_NAME: Леонид
+    LAST_NAME: Якубович
+    LOGIN: leonid
+    PASSWORD: ya_leonid
+    ROLE: OPERATOR
+
+  - ID: 2
+    FIRST_NAME: Елена
+    LAST_NAME: Попова
+    LOGIN: popovalena
+    PASSWORD: just123
+    ROLE: OPERATOR
+
+  - ID: 3
+    FIRST_NAME: Сергей
+    LAST_NAME: Скворцов
+    LOGIN: skvortz
+    PASSWORD: admin
+    ROLE: ADMIN
+
 FLOW_OPERATIONS:
   - ID: 1
     TYPE: RECEIPT
