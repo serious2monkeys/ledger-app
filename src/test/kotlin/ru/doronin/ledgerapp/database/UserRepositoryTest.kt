@@ -15,7 +15,7 @@ import ru.doronin.ledgerapp.user.UserRole
 @DataJpaTest
 class UserRepositoryTest {
     @Autowired
-    lateinit var userRepository: UserRepository
+    private lateinit var userRepository: UserRepository
 
     @Test
     fun `repository properly finds user`() {
@@ -34,9 +34,6 @@ class UserRepositoryTest {
 
         val searchResult = userRepository.findOneByLogin(login = userName)
         assertTrue(searchResult.isPresent)
-        with(searchResult.get()) {
-            assertEquals(userName, login)
-            assertEquals(UserRole.ADMIN, role)
-        }
+        assertEquals(user,searchResult.get())
     }
 }

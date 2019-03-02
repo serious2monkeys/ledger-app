@@ -36,7 +36,10 @@ dependencies {
     implementation "io.springfox:springfox-swagger-ui:${swaggerVersion}"
 
     runtimeOnly 'org.postgresql:postgresql'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('com.github.database-rider:rider-spring:1.5.2') {
+        exclude group: 'org.slf4j', module: 'slf4j-simple'
+    }
     testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.security:spring-security-test'
 }

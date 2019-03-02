@@ -1,0 +1,45 @@
+FLOW_OPERATIONS:
+  - ID: 1
+    TYPE: RECEIPT
+    DESCRIPTION: Поступление от клиента
+    EMPL_ID: 1
+    MODIFIER_ID: 1
+    DATE: 2018-01-01 15:30:00
+    VERSION: 2018-01-02 12:50:25
+    AMOUNT: 15000
+
+  - ID: 2
+    TYPE: EXPENSE
+    DESCRIPTION: Оплата счетов
+    EMPL_ID: 2
+    MODIFIER_ID: 1
+    DATE: 2018-01-01 16:00:00
+    VERSION: 2018-01-02 12:56:25
+    AMOUNT: 7400
+
+  - ID: 3
+    TYPE: RECEIPT
+    DESCRIPTION: Получение средств
+    EMPL_ID: 1
+    MODIFIER_ID: 2
+    DATE: 2018-01-11 16:00:00
+    VERSION: 2018-12-12 09:13:25
+    AMOUNT: 22000
+
+  - ID: 4
+    TYPE: EXPENSE
+    DESCRIPTION: Возмещение ущерба
+    EMPL_ID: 1
+    MODIFIER_ID: 2
+    DATE: 2018-02-01 17:00:00
+    VERSION: 2018-02-02 09:13:25
+    AMOUNT: 6300
+
+  - ID: 5
+    TYPE: RECEIPT
+    DESCRIPTION: Возврат средств
+    EMPL_ID: 2
+    MODIFIER_ID: 1
+    DATE: 2018-02-17 14:00:00
+    VERSION: 2018-02-22 11:14:05
+    AMOUNT: 1370

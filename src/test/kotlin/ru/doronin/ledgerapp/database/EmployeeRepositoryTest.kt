@@ -15,7 +15,7 @@ import ru.doronin.ledgerapp.employee.EmployeeRepository
 class EmployeeRepositoryTest {
 
     @Autowired
-    lateinit var employeeRepository: EmployeeRepository
+    private lateinit var employeeRepository: EmployeeRepository
 
     @Test
     fun `repository properly finds an employee`() {
@@ -36,11 +36,6 @@ class EmployeeRepositoryTest {
         assertEquals(1, searchResults.size)
 
         val foundEmployee = searchResults[0]
-        with(foundEmployee) {
-            assertEquals("Мария", firstName)
-            assertEquals("Иванова", lastName)
-            assertEquals("Петровна", patronymic)
-            assertEquals("Бухгалтер", position)
-        }
+        assertEquals(sampleEmployee, foundEmployee)
     }
 }
