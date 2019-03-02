@@ -15,7 +15,7 @@ import org.springframework.security.test.context.support.WithMockUser
 import org.springframework.test.context.junit4.SpringRunner
 import ru.doronin.ledgerapp.operatons.FlowRepository
 import ru.doronin.ledgerapp.operatons.FlowService
-import ru.doronin.ledgerapp.operatons.StatisticsElement
+import ru.doronin.ledgerapp.api.dtos.StatisticsElement
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -37,7 +37,7 @@ class FlowsDataTest {
     @TestConfiguration
     class Configuration {
         @Autowired
-        lateinit var repository: FlowRepository
+        private lateinit var repository: FlowRepository
 
         @Bean
         fun service(): FlowService = FlowService(repository)
@@ -47,7 +47,7 @@ class FlowsDataTest {
     private lateinit var flowService: FlowService
 
     @Autowired
-    lateinit var flowRepository: FlowRepository
+    private lateinit var flowRepository: FlowRepository
 
     @Test
     fun `repository properly finds flows by period`() {

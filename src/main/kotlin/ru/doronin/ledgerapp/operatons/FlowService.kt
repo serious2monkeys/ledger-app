@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specification
 import org.springframework.security.access.AccessDeniedException
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Service
+import ru.doronin.ledgerapp.api.dtos.MonthlyOperationsReport
 import ru.doronin.ledgerapp.employee.Employee
 import ru.doronin.ledgerapp.user.User
 import ru.doronin.ledgerapp.user.UserRole

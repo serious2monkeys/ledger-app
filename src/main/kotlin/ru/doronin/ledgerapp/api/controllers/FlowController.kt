@@ -12,7 +12,7 @@ import ru.doronin.ledgerapp.config.toDto
 import ru.doronin.ledgerapp.employee.EmployeeService
 import ru.doronin.ledgerapp.operatons.FlowOperation
 import ru.doronin.ledgerapp.operatons.FlowService
-import ru.doronin.ledgerapp.operatons.MonthlyOperationsReport
+import ru.doronin.ledgerapp.api.dtos.MonthlyOperationsReport
 import ru.doronin.ledgerapp.user.UserRole
 import ru.doronin.ledgerapp.user.UserService
 import java.time.LocalDate
