@@ -38,12 +38,17 @@ data class FlowDto(
 /**
  * Представление для отчета по месячным операциям
  */
-class MonthlyOperationsReport(operations: List<FlowOperation>) {
+class MonthlyOperationsReport {
 
     @JsonValue
-    val statistics: Map<LocalDate, StatisticsElement>
+    val statistics: TreeMap<LocalDate, StatisticsElement>
 
-    init {
+    constructor() {
+        this.statistics =
+            TreeMap(Comparator { o1: LocalDate, o2: LocalDate -> o2.compareTo(o1) })
+    }
+
+    constructor(operations: List<FlowOperation>) : this() {
         val monthlyOperations =
             operations.groupBy { operation -> operation.date.withDayOfMonth(1).toLocalDate() }
 
@@ -58,9 +63,7 @@ class MonthlyOperationsReport(operations: List<FlowOperation>) {
                 StatisticsElement(entry.value.size, receipt = receipt, expense = expense)
             }
 
-        statistics =
-            TreeMap(Comparator { o1: LocalDate, o2: LocalDate -> o2.compareTo(o1) })
-        statistics.putAll(monthlyStatistics)
+        this.statistics.putAll(monthlyStatistics)
     }
 }
 

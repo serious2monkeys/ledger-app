@@ -40,6 +40,11 @@ dependencies {
     testImplementation('com.github.database-rider:rider-spring:1.5.2') {
         exclude group: 'org.slf4j', module: 'slf4j-simple'
     }
+
+    def restAssuredVersion = '3.3.0'
+    testImplementation "io.rest-assured:rest-assured:${restAssuredVersion}"
+    testImplementation "io.rest-assured:spring-mock-mvc:${restAssuredVersion}"
+
     testImplementation 'com.h2database:h2'
     testImplementation 'org.springframework.security:spring-security-test'
 }

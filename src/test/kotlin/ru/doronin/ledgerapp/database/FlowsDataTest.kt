@@ -12,10 +12,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
 import org.springframework.security.test.context.support.WithMockUser
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.junit4.SpringRunner
+import ru.doronin.ledgerapp.api.dtos.StatisticsElement
 import ru.doronin.ledgerapp.operatons.FlowRepository
 import ru.doronin.ledgerapp.operatons.FlowService
-import ru.doronin.ledgerapp.api.dtos.StatisticsElement
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -32,6 +33,7 @@ import java.util.*
     executorId = "reports"
 )
 @DBRider
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
 class FlowsDataTest {
 
     @TestConfiguration
